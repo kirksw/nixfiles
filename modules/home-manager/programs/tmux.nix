@@ -12,10 +12,9 @@
     };
 
     # note: $XDG_CONFIG_HOME is ignored so will break if changed
-    xdg.configFile = {
-      "tmux/tmux.conf" = {
-        source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/config/general/tmux/tmux.conf";
-        recursive = true;
+    home.file = {
+      ".tmux.conf" = {
+        source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nixfiles/config/general/tmux/.tmux.conf";
       };
     };
   };

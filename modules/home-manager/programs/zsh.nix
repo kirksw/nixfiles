@@ -48,13 +48,13 @@
 
       initExtra = ''
         bindkey "''${key[Up]}" up-line-or-search
-        eval "$(~/.local/bin/mise activate zsh)"
+        # eval "$(~/.local/bin/mise activate zsh)"
       '';
     };
 
     xdg.configFile = {
       "mise" = {
-        source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/config/general/mise";  
+        source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nixfiles/config/general/mise";  
         recursive = true;
       };
     };
