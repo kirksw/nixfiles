@@ -38,7 +38,7 @@
           home-manager.nixosModules.home-manager {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            home-manager.users.demo = import ./hosts/nixos/home-desktop/home.nix;
+            home-manager.users.kirk = import ./hosts/nixos/home-desktop/home.nix;
             home-manager.sharedModules = [
               ./modules/home-manager
             ];

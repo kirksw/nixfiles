@@ -14,7 +14,6 @@
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-  boot.kernelPackages = pkgs.linuxPackages_latest;
 
   networking.hostName = "nixos";
   networking.networkmanager.enable = true;
@@ -55,10 +54,21 @@
     #media-session.enable = true;
   };
 
+  users.users.kirk = {
+    isNormalUser = true;
+    description = "Kirk";
+    extraGroups = [ "networkmanager" "wheel" ];
+    packages = with pkgs; [
+      firefox
+      kate
+      chromium
+    ];
+  };
+
   # Setup nvidia
   services.xserver.videoDrivers = [ "nvidia" ];
   hardware.opengl.enable = true;
-  hardware.nvidia.package = boot.kernelPackages.nvidiaPackages.stable;
+  hardware.nvidia.package = config.boot.kernelPackages.nvidiaPackages.stable;
   hardware.nvidia.modesetting.enable = true;
 
   # List packages installed in system profile. To search, run:
