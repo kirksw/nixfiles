@@ -1,0 +1,13 @@
+# env-vars
+export XDG_CONFIG_HOME=$HOME/.config
+export DOTFILE=$HOME/.dotfiles
+
+# aliases
+alias vim=nvim
+alias lv=nvim-lazy
+
+# zellij
+function zr () { zellij run --name "$*" -- zsh -ic "$*";}
+function zrf () { zellij run --name "$*" --floating -- zsh -ic "$*";}
+function ze () { zellij edit "$*";}
+function zef () { zellij edit --floating "$*";}
