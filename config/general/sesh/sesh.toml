@@ -1,3 +1,5 @@
+default_session_script = "/home/kirk/.config/sesh/scripts/startup.sh"
+
 [default_session]
 #startup_command = "lv -c ':Telescope find_files'"
 startup_command = "echo 'wtf'"

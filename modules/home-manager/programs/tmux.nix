@@ -106,5 +106,10 @@
     home.file.".config/sesh/sesh.toml" = {
         source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nixfiles/config/general/sesh/sesh.toml";
     };
+  
+    # TODO: remove when sesh nix package is updated
+    home.file.".config/sesh/scripts/startup.sh" = {
+        source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nixfiles/config/general/sesh/scripts/startup.sh";
+    };
   };
 }
