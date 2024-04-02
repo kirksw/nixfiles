@@ -25,17 +25,25 @@
       enable = true;
       autosuggestion.enable = true;
       enableCompletion = true;
+      plugins = [
+        {
+          name = "powerlevel10k";
+          src = pkgs.zsh-powerlevel10k;
+          file = "share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
+        }
+      ];
 
       oh-my-zsh = {
         enable = true;
-        plugins = [ 
+        #theme = "powerlevel10k";
+        plugins = [
           "git"
-          "tmux"
-          "vimode"
-          "zsh-autosuggestions"
-          "zsh-syntax-highlighting"
+          "npm"
+          "history"
+          "node"
+          "rust"
+          "deno"
         ];
-        theme = "powerlevel10k/powerlevel10k";
       };
 
       shellAliases = {
@@ -47,7 +55,7 @@
       history.path = "${config.xdg.dataHome}/zsh/history";
 
       initExtra = ''
-        bindkey "''${key[Up]}" up-line-or-search
+        [[ ! -f ~/nixfiles/config/general/zsh/.p10k.zsh ]] || source ~/nixfiles/config/general/zsh/.p10k.zsh
       '';
     };
 
@@ -57,19 +65,5 @@
         recursive = true;
       };
     };
-
-    # home.file = {
-    #   ".config/zsh" = {
-    #     source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/config/<type>/zsh"
-    #     recursive = true
-    #   };
-    # };
-
-    # xdg.configFile = {
-    #   "zsh" = {
-    #     source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/config/<type>/zsh"
-    #     recursive = true
-    #   };
-    # };
   };
 }

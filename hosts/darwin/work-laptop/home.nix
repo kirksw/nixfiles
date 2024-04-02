@@ -14,6 +14,7 @@
     bat         # better cat
     ripgrep
     vscode
+    zsh-powerlevel10k
   ];
 
   home.sessionVariables = {

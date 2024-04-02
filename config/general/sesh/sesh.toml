@@ -1,0 +1,8 @@
+[default_session]
+#startup_command = "lv -c ':Telescope find_files'"
+startup_command = "echo 'wtf'"
+
+[[session]]
+name = "nixfiles"
+path = "~/nixfiles"
+startup_command = "lv flake.nix"
