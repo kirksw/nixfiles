@@ -12,9 +12,10 @@
       vimAlias = true;
       defaultEditor = true;
 
-      # shellAliases = {
-      #   lv = "NVIM_APPNAME=lazyvim nvim";
-      # };
+    };
+
+    home.shellAliases = {
+      lv = "NVIM_APPNAME=lazyvim nvim";
     };
 
     xdg.configFile = {

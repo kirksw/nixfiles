@@ -1,4 +1,4 @@
-{ config, lib, packages, ... }:
+{ config, lib, pkgs, ... }:
 
 {
   # required config
@@ -10,10 +10,10 @@
 
   # packages not controlled by home-manager
   home.packages = with pkgs; [
-    #mise       # manage development environments  
     neofetch    # ricer
     bat         # better cat
     ripgrep
+    vscode
   ];
 
   home.sessionVariables = {
@@ -30,4 +30,5 @@
   zsh.enable = true;
   tmux.enable = true;
   wezterm.enable = true;
+  #vscode.enable = true; # TODO: unsure why this doesn't work
 }

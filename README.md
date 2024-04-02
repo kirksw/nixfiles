@@ -15,3 +15,35 @@ sudo nixos-rebuild switch --flake .#home-desktop --impure
 ```
 
 ## rebuild home-manager
+
+```bash
+home-manager switch --flake .#user
+```
+
+## Setup for macbook
+
+
+install nix
+
+```bash
+sh <(curl -L https://nixos.org/nix/install)
+```
+
+enable flake support
+
+```bash
+mkdir ~/.config/nix
+echo "experimental-features = nix-command flakes" >> ~/.config/nix/nix.conf
+```
+
+install nix-darwin
+
+```bash
+nix run nix-darwin -- switch --flake ~/.config/nix-darwin
+```
+
+update flake
+
+```bash
+darwin-rebuild switch --flake ~/.config/nix-darwin
+```

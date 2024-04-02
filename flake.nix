@@ -3,13 +3,15 @@
 
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-23.11"; 
+    nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     darwin.url = "github:lnl7/nix-darwin";
     darwin.inputs.nixpkgs.follows = "nixpkgs";
     home-manager.url = "github:nix-community/home-manager/release-23.11";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
+    nur.url = "github:nix-community/nur";
   };
 
-  outputs = { self, nixpkgs, darwin, home-manager, ... }@inputs: 
+  outputs = { self, nixpkgs, darwin, home-manager, nix-homebrew, homebrew-core, homebrew-cask, ... }@inputs: 
     let
       vars = {
         user = "kirk";
@@ -67,13 +69,10 @@
             {
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
-              home-manager.users.kirk = import ./hosts/darwin/work-desktop/home.nix;
+              home-manager.users.kirk = import ./hosts/darwin/work-laptop/home.nix;
               home-manager.sharedModules = [
                 ./modules/home-manager
               ];
-              home-manager.extraSpecialArgs = {
-                inherit vars;
-              };
 
               # Optionally, use home-manager.extraSpecialArgs to pass
               # arguments to home.nix
