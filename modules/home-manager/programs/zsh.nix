@@ -6,10 +6,10 @@
   };
 
   config = lib.mkIf config.zsh.enable {
-    # programs.mise = {
-    #   enable = true;
-    #   enableZshIntegration = true;
-    # };
+    programs.mise = {
+      enable = true;
+      enableZshIntegration = true;
+    };
 
     programs.zoxide = {
       enable = true;
@@ -23,7 +23,7 @@
 
     programs.zsh = {
       enable = true;
-      enableAutosuggestions = true;
+      autosuggestion.enable = true;
       enableCompletion = true;
 
       oh-my-zsh = {
@@ -48,7 +48,6 @@
 
       initExtra = ''
         bindkey "''${key[Up]}" up-line-or-search
-        # eval "$(~/.local/bin/mise activate zsh)"
       '';
     };
 

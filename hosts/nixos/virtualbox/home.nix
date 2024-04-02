@@ -10,7 +10,6 @@
 
   # packages not controlled by home-manager
   home.packages = with pkgs; [
-    #mise       # manage development environments  
     neofetch    # ricer
     bat         # better cat
     ripgrep

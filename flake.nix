@@ -2,16 +2,28 @@
   description = "my flake";
 
   inputs = {
-    nixpkgs.url = "nixpkgs/nixos-23.11"; 
-    nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+    # nixpkgs.url = "nixpkgs/nixos-23.11"; 
+    # nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+    # darwin.url = "github:lnl7/nix-darwin";
+    # darwin.inputs.nixpkgs.follows = "nixpkgs";
+    # home-manager.url = "github:nix-community/home-manager/release-23.11";
+    # home-manager.inputs.nixpkgs.follows = "nixpkgs";
+    # nur.url = "github:nix-community/nur";
+    nixpkgs.url = "github:nixos/nix";
+    stable.url = "github:nixos/nixpkgs/release-23.11";
+    unstable.url = "github:nixos/nixpkgs/nixpkgs-unstable";
+    nur.url = "github:nix-community/NUR";
+    nixpkgs.follows = "unstable";
     darwin.url = "github:lnl7/nix-darwin";
+    home-manager.url = "github:nix-community/home-manager";
+    
+    # Minimize duplicate instances of inputs
+    nixpkgs.inputs.nixpkgs.follows = "nixpkgs";
     darwin.inputs.nixpkgs.follows = "nixpkgs";
-    home-manager.url = "github:nix-community/home-manager/release-23.11";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
-    nur.url = "github:nix-community/nur";
   };
 
-  outputs = { self, nixpkgs, darwin, home-manager, nix-homebrew, homebrew-core, homebrew-cask, ... }@inputs: 
+  outputs = { self, nixpkgs, darwin, home-manager, ... }@inputs: 
     let
       vars = {
         user = "kirk";

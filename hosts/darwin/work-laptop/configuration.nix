@@ -57,7 +57,6 @@
     git
     vscode
     slack
-    #raycast
   ];
 
   environment.shells = with pkgs; [
@@ -71,7 +70,7 @@
   homebrew = {
     # This is a module from nix-darwin
     # Homebrew is *installed* via the flake input nix-homebrew
-    enable = false;
+    enable = true;
 
     casks = [
       "notion"
@@ -106,18 +105,4 @@
       })
     ];
   };
-
-  # TODO: remove hardcoded kirk and change to $me
-  # NOTE: this is required to link the applications so finder can "find" them
-  system.activationScripts.applications.text = pkgs.lib.mkForce (''
-      echo "setting up ~/Applications/Nix..."
-      rm -rf ~/Applications/Nix
-      mkdir -p ~/Applications/Nix
-      chown kirk ~/Applications/Nix
-      find ${config.system.build.applications}/Applications -maxdepth 1 -type l | while read f; do
-        src="$(/usr/bin/stat -f%Y $f)"
-        appname="$(basename $src)"
-        osascript -e "tell app \"Finder\" to make alias file at POSIX file \"/Users/kirk/Applications/Nix/\" to POSIX file \"$src\" with properties {name: \"$appname\"}";
-    done
-  '');
 }
