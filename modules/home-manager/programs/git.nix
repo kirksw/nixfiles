@@ -6,6 +6,10 @@
   };
 
   config = lib.mkIf config.git.enable {
+    programs.lazygit = {
+        enable = true;
+    };
+
     programs.git = {
       enable = true;
       userName = "Kirk Sweeney";

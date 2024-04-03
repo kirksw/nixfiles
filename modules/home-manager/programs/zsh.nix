@@ -6,6 +6,10 @@
   };
 
   config = lib.mkIf config.zsh.enable {
+    home.packages = with pkgs; [
+      xz
+    ];
+
     programs.mise = {
       enable = true;
       enableZshIntegration = true;
@@ -42,6 +46,7 @@
           "history"
           "node"
           "rust"
+          "python"
           "deno"
         ];
       };
