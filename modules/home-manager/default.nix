@@ -7,5 +7,7 @@
     ./programs/zsh.nix
     ./programs/wezterm.nix
     ./programs/tmux.nix
+    ./programs/gcp.nix
+    ./programs/youtube.nix
   ];
 }

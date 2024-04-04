@@ -54,7 +54,6 @@
   # \$ nix search wget
   environment.systemPackages = with pkgs; [
     wget
-    git
     vscode
     slack
   ];

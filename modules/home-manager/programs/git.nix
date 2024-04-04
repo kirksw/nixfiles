@@ -6,6 +6,12 @@
   };
 
   config = lib.mkIf config.git.enable {
+    home.packages = with pkgs; [
+      git
+      delta
+      github-cli
+    ];
+
     programs.lazygit = {
         enable = true;
     };

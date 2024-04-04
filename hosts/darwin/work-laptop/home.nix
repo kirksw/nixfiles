@@ -31,5 +31,6 @@
   zsh.enable = true;
   tmux.enable = true;
   wezterm.enable = true;
+  gcp.enable = true;
   #vscode.enable = true; # TODO: unsure why this doesn't work
 }
