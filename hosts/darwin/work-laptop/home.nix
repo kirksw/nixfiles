@@ -15,6 +15,7 @@
     ripgrep
     vscode
     zsh-powerlevel10k
+    cyberduck
   ];
 
   home.sessionVariables = {
@@ -32,5 +33,6 @@
   tmux.enable = true;
   wezterm.enable = true;
   gcp.enable = true;
+  terraform.enable = true;
   #vscode.enable = true; # TODO: unsure why this doesn't work
 }

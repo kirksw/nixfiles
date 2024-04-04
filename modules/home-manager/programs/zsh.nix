@@ -7,7 +7,8 @@
 
   config = lib.mkIf config.zsh.enable {
     home.packages = with pkgs; [
-      xz
+      xz # the trojaned package
+      jq
     ];
 
     programs.mise = {
@@ -41,6 +42,7 @@
         enable = true;
         #theme = "powerlevel10k";
         plugins = [
+          "docker"
           "git"
           "npm"
           "history"

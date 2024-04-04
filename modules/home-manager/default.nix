@@ -9,5 +9,6 @@
     ./programs/tmux.nix
     ./programs/gcp.nix
     ./programs/youtube.nix
+    ./programs/terraform.nix
   ];
 }

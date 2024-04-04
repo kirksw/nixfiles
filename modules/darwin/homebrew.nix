@@ -18,6 +18,7 @@
             casks = [ 
                 "raycast"
                 "visual-studio-code"
+                "docker"
             ];
 
             taps = [
