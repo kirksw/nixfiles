@@ -14,7 +14,6 @@
     bat         # better cat
     ripgrep
     vscode
-    zsh-powerlevel10k
     cyberduck
   ];
 
@@ -34,5 +33,6 @@
   wezterm.enable = true;
   gcp.enable = true;
   terraform.enable = true;
+  container.enable = true;
   #vscode.enable = true; # TODO: unsure why this doesn't work
 }

@@ -10,5 +10,6 @@
     ./programs/gcp.nix
     ./programs/youtube.nix
     ./programs/terraform.nix
+    ./programs/containers.nix
   ];
 }
