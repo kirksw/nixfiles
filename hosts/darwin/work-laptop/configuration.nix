@@ -56,6 +56,7 @@
     wget
     vscode
     slack
+    # xz # doesn't install libraries?
   ];
 
   environment.shells = with pkgs; [
@@ -90,8 +91,8 @@
   };
 
   environment.variables = {
-    EDITOR = "lv";
-    VISUAL = "lv";
+    EDITOR = "NVIM_APPNAME=lazyvim nvim";
+    VISUAL = "NVIM_APPNAME=lazyvim nvim";
   };
 
   fonts = {

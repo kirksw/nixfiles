@@ -7,9 +7,7 @@
 
   config = lib.mkIf config.zsh.enable {
     home.packages = with pkgs; [
-      xz # the trojaned package
       jq
-      #zsh-powerlevel10k
     ];
 
     programs.mise = {

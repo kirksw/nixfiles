@@ -27,7 +27,9 @@
                 "homebrew/cask-fonts"
             ];
                 
-            # brews = [ "trippy" ];
+            brews = [
+                "xz"
+            ];
             # extraConfig = '''';
         };
     };

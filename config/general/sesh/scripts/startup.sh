@@ -1,2 +1,2 @@
 #!/usr/bin/env zsh
-lv -c ':Telescope find_files'
+NVIM_APPNAME=lazyvim nvim -c ':Telescope find_files'

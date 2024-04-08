@@ -37,6 +37,7 @@
     vim
     git
     vscode
+    xz      # xz compression utility (lzma successor)
   ];
 
   fonts.packages = with pkgs; [
