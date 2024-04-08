@@ -10,6 +10,9 @@
       colima
       docker
       kubectl
+      kubernetes-helm
+      argocd
+      k9s
     ];
   };
 }
