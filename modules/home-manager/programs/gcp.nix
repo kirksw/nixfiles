@@ -6,12 +6,12 @@
   };
 
   config = lib.mkIf config.gcp.enable {
-    # programs.google-cloud-cli = {
-    #   enable = true;
-    # };
-    home.packages = with pkgs; [
-      google-cloud-sdk
-    ];
+    # packages = [
+    #   (pkgs.google-cloud-sdk.withExtraComponents [pkgs.google-cloud-sdk.components.gke-gcloud-auth-plugin])
+    # ];
+    # home.packages = with pkgs; [
+    #   google-cloud-sdk.withExtraComponents([google-cloud-sdk.components.gke-gcloud-auth-plugin])
+    # ];
   };
 }
 

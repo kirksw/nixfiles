@@ -2,7 +2,6 @@
 
 {
   services.nix-daemon.enable = true;
-
   nixpkgs.config.allowUnfree = true;
 
   nix.package = pkgs.nixFlakes;
@@ -56,43 +55,18 @@
     wget
     vscode
     slack
+    (google-cloud-sdk.withExtraComponents [google-cloud-sdk.components.gke-gcloud-auth-plugin])
     # xz # doesn't install libraries?
   ];
 
   environment.shells = with pkgs; [
     zsh
   ];
-
-  programs = {
-    zsh.enable = true;
-  };
-
-  homebrew = {
-    # This is a module from nix-darwin
-    # Homebrew is *installed* via the flake input nix-homebrew
-    enable = true;
-
-    casks = [
-      "notion"
-      "slack"
-      "raycast"
-      "vlc"
-    ];
-
-    # These app IDs are from using the mas CLI app
-    # mas = mac app store
-    # https://github.com/mas-cli/mas
-    #
-    # $ nix shell nixpkgs#mas
-    # $ mas search <app name>
-    #
-    # masApps = {
-    # };
-  };
+  programs.zsh.enable = true;
 
   environment.variables = {
-    EDITOR = "NVIM_APPNAME=lazyvim nvim";
-    VISUAL = "NVIM_APPNAME=lazyvim nvim";
+    EDITOR = "nvim";
+    VISUAL = "nvim";
   };
 
   fonts = {
@@ -104,5 +78,35 @@
         ];
       })
     ];
+  };
+
+  homebrew = {
+    brewPrefix = "/opt/homebrew/bin";
+    enable = true;
+    caskArgs.no_quarantine = true;
+    global = {
+      brewfile = true;
+    };
+
+    casks = [ 
+      "raycast"
+      "visual-studio-code"
+      "notion"
+      "slack"
+      "vlc"
+    ];
+
+    taps = [
+      "homebrew/cask-fonts"
+      "joshmedeski/sesh"
+    ];
+        
+    brews = [
+      "xz"
+      "pinentry"
+      "pinentry-mac" # BUG: nix doesn't have a darwin/aarch64 version of pinentry
+      "sesh"
+    ];
+    # extraConfig = '''';
   };
 }

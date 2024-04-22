@@ -1,4 +1,4 @@
-{ pkgs, lib, config, ... }:
+{ pkgs, lib, config, unstable, ... }:
 
 {
   options = {
@@ -8,26 +8,13 @@
   config = lib.mkIf config.zsh.enable {
     home.packages = with pkgs; [
       jq
+      unstable.mise #TODO: remove this once mise is stable
     ];
-
-    programs.mise = {
-      enable = true;
-      enableZshIntegration = true;
-    };
-
-    programs.zoxide = {
-      enable = true;
-      enableZshIntegration = true;
-    };
-
-    programs.fzf = {
-      enable = true;
-      enableZshIntegration = true;
-    };
 
     programs.zsh = {
       enable = true;
-      autosuggestion.enable = true;
+      enableAutosuggestions = true; #TODO: change to below when updated
+      #autosuggestion.enable = true;
       enableCompletion = true;
       plugins = [
         {
@@ -39,7 +26,6 @@
 
       oh-my-zsh = {
         enable = true;
-        #theme = "powerlevel10k";
         plugins = [
           "docker"
           "git"
@@ -54,7 +40,7 @@
 
       shellAliases = {
         ll = "ls -l";
-        update = "sudo nixos-rebuild switch --flake ~/.nixfiles";
+        update = "darwin-rebuild switch --flake ~/nixfiles#work-laptop";
       };
 
       history.size = 10000;
@@ -62,7 +48,31 @@
 
       initExtra = ''
         [[ ! -f ~/nixfiles/config/general/zsh/.p10k.zsh ]] || source ~/nixfiles/config/general/zsh/.p10k.zsh
+        source ${pkgs.zsh-vi-mode}/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
+
+        if [[ $(uname -m) == 'arm64' ]]; then
+            eval "$(/opt/homebrew/bin/brew shellenv)"
+        fi
+
+        eval "$(/etc/profiles/per-user/kirk/bin/mise activate zsh)"
       '';
+    };
+
+    # TODO: find out how to make an overlay using unstable
+    # programs.mise = {
+    #   package = unstable.mise;
+    #   enable = true;
+    #   enableZshIntegration = true;
+    # };
+
+    programs.zoxide = {
+      enable = true;
+      enableZshIntegration = true;
+    };
+
+    programs.fzf = {
+      enable = true;
+      enableZshIntegration = true;
     };
 
     xdg.configFile = {

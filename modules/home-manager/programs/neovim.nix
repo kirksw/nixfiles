@@ -15,19 +15,12 @@
     };
 
     home.shellAliases = {
-      lv = "NVIM_APPNAME=lazyvim nvim";
+      lv = "nvim";
     };
 
     xdg.configFile = {
       "nvim" = {
         source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nixfiles/config/general/nvim/.config/nvim";
-        recursive = true;
-      };
-    };
-
-    xdg.configFile = {
-      "lazyvim" = {
-        source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nixfiles/config/general/nvim/.config/lazyvim";
         recursive = true;
       };
     };

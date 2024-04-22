@@ -1,4 +1,4 @@
-{ pkgs, lib, config, ... }:
+{ pkgs, lib, config, unstable, ... }:
 
 {
   options = {
@@ -6,9 +6,10 @@
   };
 
   config = lib.mkIf config.tmux.enable {
-    home.packages = with pkgs; [
-        sesh  # session manangement plugin (so fucking good)
-    ];
+    # TODO: currently using brew because fuck nix
+    # home.packages = with pkgs; [
+    #   unstable.sesh  # session manangement plugin (so fucking good)
+    # ];
 
     home.shellAliases = {
       t = "sesh connect $(sesh list | fzf)";
@@ -51,7 +52,7 @@
         # Keybinds for pane resizing
         bind -r j resize-pane -D 5
         bind -r k resize-pane -U 5
-        bind -r l resize-pane -D 5
+        bind -r l resize-pane -R 5
         bind -r h resize-pane -L 5
         
         # Keybind for maximize/minimize

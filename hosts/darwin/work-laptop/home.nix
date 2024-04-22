@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, unstable,... }:
 
 {
   # required config
@@ -13,8 +13,12 @@
     neofetch    # ricer
     bat         # better cat
     ripgrep
-    vscode
+    unstable.vscode
     cyberduck
+    graphviz
+    rectangle
+    rbw
+    docker-credential-helpers
   ];
 
   home.sessionVariables = {

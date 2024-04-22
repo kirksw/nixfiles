@@ -13,6 +13,7 @@
       kubernetes-helm
       argocd
       k9s
+      minikube
     ];
   };
 }
