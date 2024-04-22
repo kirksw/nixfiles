@@ -1,5 +1,5 @@
 [default_session]
-startup_command = "lv -c ':Telescope find_files'"
+startup_command = "lv ."
 
 [[session]]
 name = "nixfiles"

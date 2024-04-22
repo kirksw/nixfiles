@@ -22,7 +22,6 @@ home-manager switch --flake .#user
 
 ## Setup for macbook
 
-
 install nix
 
 ```bash
@@ -39,7 +38,7 @@ echo "experimental-features = nix-command flakes" >> ~/.config/nix/nix.conf
 install nix-darwin
 
 ```bash
-nix run nix-darwin -- switch --flake ~/.config/nix-darwin
+nix run nix-darwin -- switch --flake ~/nixfiles
 ```
 
 update flake
