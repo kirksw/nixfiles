@@ -8,3 +8,9 @@ dotnet = '7.0.201'
 #ruby = 'latest'
 perl = 'latest'
 lua = '5.4'
+maven = "3.9"
+gradle = "8.7"
+sbt = "latest"
+
+[settings]
+experimental = true

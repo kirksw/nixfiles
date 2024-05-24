@@ -21,6 +21,10 @@
       userName = "Kirk Sweeney";
       userEmail = "kirk.sweeney@outlook.com";
 
+      lfs = {
+        enable = true;
+      };
+
       extraConfig = {
         core = {
           editor = "nvim";

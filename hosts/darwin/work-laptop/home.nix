@@ -19,6 +19,7 @@
     rectangle
     rbw
     docker-credential-helpers
+    # unstable.notion
   ];
 
   home.sessionVariables = {
