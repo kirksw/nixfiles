@@ -107,6 +107,7 @@
       "pinentry-mac" # BUG: nix doesn't have a darwin/aarch64 version of pinentry
       "sesh"
       "coreutils"
+      "infisical/get-cli/infisical"
     ];
     # extraConfig = '''';
   };

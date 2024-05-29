@@ -53,6 +53,9 @@
         if [[ $(uname -m) == 'arm64' ]]; then
             eval "$(/opt/homebrew/bin/brew shellenv)"
         fi
+        
+        # add scripts to path
+        export PATH="$PATH:$HOME/.config/scripts"
 
         eval "$(/etc/profiles/per-user/kirk/bin/mise activate zsh)"
       '';
@@ -81,5 +84,12 @@
         recursive = true;
       };
     };
+
+    xdg.configFile = {
+      "scripts" = {
+        source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nixfiles/scripts";  
+        recursive = true;
+      };
+    }; 
   };
 }
