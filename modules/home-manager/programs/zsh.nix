@@ -8,6 +8,7 @@
   config = lib.mkIf config.zsh.enable {
     home.packages = with pkgs; [
       jq
+      yq
       unstable.mise #TODO: remove this once mise is stable
     ];
 
