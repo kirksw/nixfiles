@@ -53,8 +53,8 @@
   # \$ nix search wget
   environment.systemPackages = with pkgs; [
     wget
-    vscode
     slack
+    # TODO: remove => vscode
     (google-cloud-sdk.withExtraComponents [google-cloud-sdk.components.gke-gcloud-auth-plugin])
     # xz # doesn't install libraries?
   ];
@@ -69,16 +69,13 @@
     VISUAL = "nvim";
   };
 
-  fonts = {
-    fontDir.enable = true;
-    fonts = with pkgs; [
-      (nerdfonts.override {
-        fonts = [
-          "FiraCode"
-        ];
-      })
-    ];
-  };
+  fonts.packages = with pkgs; [
+    (nerdfonts.override {
+      fonts = [
+      "FiraCode"
+      ];
+    })
+  ];
 
   homebrew = {
     brewPrefix = "/opt/homebrew/bin";
@@ -90,7 +87,6 @@
 
     casks = [ 
       "raycast"
-      "visual-studio-code"
       "notion"
       "slack"
       "vlc"

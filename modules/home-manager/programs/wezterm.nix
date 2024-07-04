@@ -41,6 +41,14 @@
                 action.SendKey({ key = "T" }),
               }),
             },
+            {
+              key = "k",
+              mods = "SHIFT|SUPER",
+              action = action.Multiple({
+                action.SendKey({ key = "a", mods = "CTRL" }),
+                action.SendKey({ key = "K" }),
+              }),
+            },
           },
         }
       '';

@@ -12,14 +12,16 @@
   home.packages = with pkgs; [
     neofetch    # ricer
     bat         # better cat
-    ripgrep
-    unstable.vscode
-    cyberduck
-    graphviz
-    rectangle
-    rbw
+    ripgrep     # better grep
+    cyberduck   # sftp/blob clinet
+    graphviz    # ??
+    rectangle   # window manager (mac)
+    rbw         # bitwarden cli (unofficial)
+    act         # github actions local runner
     docker-credential-helpers
-    # unstable.notion
+    gitleaks
+    gum
+    #unstable.vscode
   ];
 
   home.sessionVariables = {

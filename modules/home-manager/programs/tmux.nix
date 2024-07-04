@@ -99,6 +99,10 @@
             --bind 'ctrl-d:execute(tmux kill-session -t {})+change-prompt(⚡  )+reload(sesh list)'
         )\""
         
+        bind-key "K" display-popup -E -w 40% "sesh connect \"$(
+          sesh list -i | gum filter --limit 1 --placeholder 'Pick a sesh' --height 50 --prompt='⚡'
+        )\""
+
         # Initialize TMUX plugin manager (keep this line at the very bottom of tmux.conf)
         run '~/.tmux/plugins/tpm/tpm'
       '';

@@ -49,7 +49,7 @@
 
       initExtra = ''
         [[ ! -f ~/nixfiles/config/general/zsh/.p10k.zsh ]] || source ~/nixfiles/config/general/zsh/.p10k.zsh
-        source ${pkgs.zsh-vi-mode}/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
+        # source ${pkgs.zsh-vi-mode}/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
 
         if [[ $(uname -m) == 'arm64' ]]; then
             eval "$(/opt/homebrew/bin/brew shellenv)"
