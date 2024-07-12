@@ -14,8 +14,7 @@
 
     programs.zsh = {
       enable = true;
-      enableAutosuggestions = true; #TODO: change to below when updated
-      #autosuggestion.enable = true;
+      autosuggestion.enable = true; 
       enableCompletion = true;
       plugins = [
         {
@@ -41,7 +40,7 @@
 
       shellAliases = {
         ll = "ls -l";
-        update = "darwin-rebuild switch --flake ~/nixfiles#work-laptop";
+        update = "darwin-rebuild switch --flake switch --flake ~/nixfiles#work-laptop";
       };
 
       history.size = 10000;
@@ -81,14 +80,14 @@
 
     xdg.configFile = {
       "mise" = {
-        source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nixfiles/config/general/mise";  
+        source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nixfiles-v2/config/general/mise";  
         recursive = true;
       };
     };
 
     xdg.configFile = {
       "scripts" = {
-        source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nixfiles/scripts";  
+        source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nixfiles-v2/scripts";  
         recursive = true;
       };
     }; 

@@ -1,36 +1,27 @@
 { config, lib, pkgs, unstable,... }:
 
 {
-  # required config
-  # home.userName = "demo"
-  # home.homeDirectory = "/home/demo"
-  # targets.genericLinux.enable = true; # ENABLE FOR NON_NIXOS
-  home.stateVersion = "23.11";
+  home.stateVersion = "24.05";
   programs.home-manager.enable = true;
 
   # packages not controlled by home-manager
   home.packages = with pkgs; [
     neofetch    # ricer
     bat         # better cat
-    ripgrep     # better grep
+    ripgrep     # move to base module (to include in all configs)
     cyberduck   # sftp/blob clinet
     graphviz    # ??
     rectangle   # window manager (mac)
-    rbw         # bitwarden cli (unofficial)
-    act         # github actions local runner
+    rbw         # move to base module (to include in all configs)
+    act         # todo: move to devops module
     docker-credential-helpers
-    gitleaks
-    gum
+    gitleaks    # todo: move to git module
+    gum         # fzf alternative (testing)
+    viu
+    chafa
+    ueberzugpp
     #unstable.vscode
   ];
-
-  home.sessionVariables = {
-    # user session variables
-  };
-
-  home.file = {
-    # symlinked files
-  };
 
   # custom modules
   git.enable = true;
@@ -41,5 +32,4 @@
   gcp.enable = true;
   terraform.enable = true;
   container.enable = true;
-  #vscode.enable = true; # TODO: unsure why this doesn't work
 }

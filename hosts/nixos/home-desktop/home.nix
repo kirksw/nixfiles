@@ -5,7 +5,7 @@
   # home.userName = "demo"
   # home.homeDirectory = "/home/demo"
   # targets.genericLinux.enable = true; # ENABLE FOR NON_NIXOS
-  home.stateVersion = "23.11";
+  home.stateVersion = "24.05";
   programs.home-manager.enable = true;
 
   # packages not controlled by home-manager

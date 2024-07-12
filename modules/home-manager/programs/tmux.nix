@@ -1,4 +1,4 @@
-{ pkgs, lib, config, unstable, ... }:
+{ pkgs, lib, config, ... }:
 
 {
   options = {
@@ -6,10 +6,9 @@
   };
 
   config = lib.mkIf config.tmux.enable {
-    # TODO: currently using brew because fuck nix
-    # home.packages = with pkgs; [
-    #   unstable.sesh  # session manangement plugin (so fucking good)
-    # ];
+    home.packages = with pkgs; [
+      sesh
+    ];
 
     home.shellAliases = {
       t = "sesh connect $(sesh list | fzf)";
@@ -112,7 +111,6 @@
         source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nixfiles/config/general/sesh/sesh.toml";
     };
   
-    # TODO: remove when sesh nix package is updated
     home.file.".config/sesh/scripts/startup.sh" = {
         source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nixfiles/config/general/sesh/scripts/startup.sh";
     };

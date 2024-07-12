@@ -53,10 +53,7 @@
   # \$ nix search wget
   environment.systemPackages = with pkgs; [
     wget
-    slack
-    # TODO: remove => vscode
     (google-cloud-sdk.withExtraComponents [google-cloud-sdk.components.gke-gcloud-auth-plugin])
-    # xz # doesn't install libraries?
   ];
 
   environment.shells = with pkgs; [
@@ -105,6 +102,5 @@
       "coreutils"
       "infisical/get-cli/infisical"
     ];
-    # extraConfig = '''';
   };
 }

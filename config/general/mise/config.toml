@@ -1,17 +1,1 @@
-[tools]
-python = "3.10"
-node = 'lts'
-go = 'prefix:1.20'
-rust = "nightly"
-java = 'zulu-17'
-dotnet = '7.0.201'
-#ruby = 'latest'
-perl = 'latest'
-lua = '5.4'
-maven = "3.9"
-gradle = "8.7"
-sbt = "latest"
-"cargo:arroyo" = "latest"
-
-[settings]
-experimental = true
+/nix/store/9k8n4in4mksc0j6s1gnhh0pzv3b7d65x-home-manager-files/.config/mise/config.toml

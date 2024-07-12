@@ -1,27 +1,35 @@
 {
-  description = "my flake";
+  description = "general purpose nix configuration for macos and nixos";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/release-23.11";
+    nixpkgs.url = "github:nixos/nixpkgs/release-24.05";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixpkgs-unstable";
-    darwin.url = "github:lnl7/nix-darwin";
-    home-manager.url = "github:nix-community/home-manager/release-23.11";
-    
-    # Minimize duplicate instances of inputs
-    darwin.inputs.nixpkgs.follows = "nixpkgs";
-    home-manager.inputs.nixpkgs.follows = "nixpkgs";
+    home-manager = {
+      url = "github:nix-community/home-manager/release-24.05";
+      inputs.nixpkgs.follows = "nixpkgs"; 
+    };
+    darwin = {
+      url = "github:lnl7/nix-darwin";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    # Overlays
+    neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
   };
 
   outputs = { self, nixpkgs-unstable, nixpkgs, darwin, home-manager, ... }@inputs: 
     let
       vars = {
         user = "kirk";
+        linuxSystems = [ "x86_64-linux" "aarch64-linux" ];
+        darwinSystems = [ "aarch64-darwin" ];
         location = "$HOME/.nixfiles";
         terminal = "wezterm";
         editor = "nvim";
       };
       system = "aarch64-darwin";
       unstable = import nixpkgs-unstable { inherit system; config.allowUnfree = true;};
+      pkgs = import nixpkgs { inherit system; overlays = [ inputs.neovim-nightly-overlay.overlays.default ]; };
     in {
       nixosConfigurations = {
         virtualbox = nixpkgs.lib.nixosSystem {

@@ -11,7 +11,6 @@
       viAlias = true;
       vimAlias = true;
       defaultEditor = true;
-
     };
 
     home.shellAliases = {
